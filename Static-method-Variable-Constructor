@@ -1,0 +1,59 @@
+class Person
+    {
+        static int a;
+        int i;
+
+        static Person()
+        {
+           
+            Console.WriteLine("hello static Constructor.");
+        }
+      
+
+        public void setval(int n)
+        {
+            a = n;  //Initilizing the Static variable
+            i = n;
+        }
+
+        public static void check()
+        {
+
+            Console.WriteLine("Hello static method check");
+            Check1();
+
+        }
+         static void Check1()
+        {
+            Console.WriteLine("Checking...");
+            
+            Person p = new Person();
+            p.display();//accessing the non static method in Static method for that u have to Create the object !!.
+            p.i = 0;//aceesing the Non static variable in Static method
+        }
+
+        public void display()
+        {
+            Check1(); //calling Static method from non static method
+            Console.WriteLine("value of Static varible ={0}",a);
+            Console.WriteLine("value of Implict varible ={0}", i);
+
+        }
+
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Person p = new Person();
+            Console.WriteLine("hello i am in main");
+            p.setval(10);
+            p.display();
+            Person p1 = new Person();
+            p1.display();
+            Person.check();
+            Console.ReadKey();
+
+        }
+    }
