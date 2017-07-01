@@ -1,0 +1,66 @@
+ class A
+    {
+        protected  static int a, b;
+        protected int c;
+        static A()
+
+        {
+            a = 10;
+            Console.WriteLine("static A");
+           
+         }
+
+       public A()
+        {
+            a = 5;
+            Console.WriteLine("A Constructor");
+            c = 0;
+        }
+    }
+
+    class B:A
+    {
+        static B()
+        {
+            b = 20;
+            a = 30;
+            Console.WriteLine("Staic B");
+            b = 20;
+            a = 30;
+        }
+        public B(int a)
+        {
+            Console.WriteLine("B Constructor");
+            c = 4;
+            a = 7;
+        }
+           
+    }
+    class C:B
+    {
+        static C()
+        {
+            a = 10;
+            Console.WriteLine("Static C");
+        }
+
+        public C():base(10)
+        {
+            Console.WriteLine("C Constructor");
+            c = 0;
+            a = 70;
+        }
+    }
+
+
+
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            C c = new C();
+            Console.ReadKey();
+        }
+    }
